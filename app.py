@@ -13,7 +13,7 @@ output = "your_model_file.h5"  # or .pkl, etc.
 gdown.download(url, output, quiet=False)
 
 from keras.models import load_model
-model = load_model(output)
+model = load_model("your_model_file.h5")
 # Load the trained model
 
 
