@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rice Leaf Disease Detection</title>
+</head>
+<body>
+    <h1>Rice Leaf Disease Detection</h1>
+
+    <!-- File upload form -->
+    <form action="/" method="post" enctype="multipart/form-data">
+        <label for="file">Choose an image:</label>
+        <input type="file" name="file" accept="image/*">
+        <button type="submit">Predict</button>
+    </form>
+
+    <!-- Display error if no file is uploaded -->
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <!-- Display prediction result below the form -->
+    {% if predicted_class_name %}
+        <h2>Detected Diseases: {{ predicted_class_name }}</h2>
+    {% endif %}
+</body>
+</html>
