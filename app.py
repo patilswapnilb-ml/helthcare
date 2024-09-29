@@ -4,8 +4,18 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array, load_img
 import numpy as np
 
+
+import gdown
+
+# Download model from Google Drive
+url = "https://drive.google.com/file/d/124UhbC0-gsRuHGPi_6cVRCQwKO_yj0mZ/view?usp=sharing"
+output = "your_model_file.h5"  # or .pkl, etc.
+gdown.download(url, output, quiet=False)
+
+from keras.models import load_model
+model = load_model(output)
 # Load the trained model
-model = load_model('model_final_2.h5')
+
 
 # Define the class names based on your dataset
 class_names = ['Bacterial leaf blight', 'Brown spot', 'Healthy', 'Leaf Blast', 'Leaf scald', 'Narrow Brown Spot']
